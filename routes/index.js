@@ -9,9 +9,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/data/',async(req, res, next)=>{
+router.post('/data/',async(req, res)=>{
   try {
-    let result =await dataModel.create(req.body)
+    let result =await dataModel.create(req.body.values)
     res.send({
       statusCode: 200,
       message : "data created successfully"
